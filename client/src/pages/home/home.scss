@@ -1,0 +1,20 @@
+.home {
+  min-height: calc(100vh - 70px);
+  position: relative;
+  .contentWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .buttonWrapper {
+      margin: 20px;
+      display: flex;
+      justify-content: space-evenly;
+      .buttonLink {
+        padding: 10px 15px;
+        border-radius: 15px;
+        border: none;
+      }
+    }
+  }
+}
