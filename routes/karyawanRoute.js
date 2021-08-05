@@ -5,10 +5,12 @@ const auth = require("../middlewares/auth");
 
 router.post("/", auth, authAdmin, karyawanCtrl.createKaryawan);
 
-router.patch("/delete/:id", auth, authAdmin, karyawanCtrl.deleteKaryawan);
+router.get("/", auth, authAdmin, karyawanCtrl.getAllKaryawan);
+
+router.get("/:id", auth, authAdmin, karyawanCtrl.getKaryawan);
+
+router.patch("/delete/", auth, authAdmin, karyawanCtrl.deleteKaryawan);
 
 router.patch("/update/:id", auth, authAdmin, karyawanCtrl.updateKaryawan);
-
-router.get("/", auth, authAdmin, karyawanCtrl.getAllKaryawan);
 
 module.exports = router;

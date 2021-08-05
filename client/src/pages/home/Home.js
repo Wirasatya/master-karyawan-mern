@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./home.scss";
+import { logout } from "../../context/actions/authAction";
 
-const Home = () => {
+const Home = ({ dispatch }) => {
   const handleLogout = (e) => {
     e.preventDefault();
+    logout(dispatch);
   };
   return (
     <div className="home">
@@ -15,7 +17,7 @@ const Home = () => {
             <Link to="/karyawan">Karyawan</Link>
           </button>
           <button className="buttonLink">
-            <Link to="/karyawan">Jabatan</Link>
+            <Link to="/jabatan">Jabatan</Link>
           </button>
           <button onClick={handleLogout} className="buttonLink">
             Logout

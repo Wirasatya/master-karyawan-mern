@@ -4,10 +4,10 @@ const karyawanCtrl = {
   createKaryawan: async (req, res) => {
     try {
       const { nama, nip, tanggal_lahir, jabatan, jenis_kelamin } = req.body;
-      if (!nama || !nip)
+      if (!nama || !nip || !jabatan)
         return res
           .status(400)
-          .json({ msg: "nama atau nip tidak boleh kosong" });
+          .json({ msg: "nama, nip dan jabatan tidak boleh kosong" });
 
       const checkNip = await Karyawan.findOne({ nip });
       if (checkNip) return res.status(400).json({ msg: "NIP sudah ada" });
@@ -29,6 +29,14 @@ const karyawanCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  getKaryawan: async (req, res) => {
+    try {
+      const karyawan = await Karyawan.findOne({ _id: req.params.id });
+      res.status(200).json({ karyawan });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   updateKaryawan: async (req, res) => {
     try {
       const { nama, nip, tanggal_lahir, jabatan, jenis_kelamin } = req.body;
@@ -37,6 +45,9 @@ const karyawanCtrl = {
         return res.status(400).json({ msg: "nama tidak boleh kosong" });
 
       if (!nip) return res.status(400).json({ msg: "nip tidak boleh kosong" });
+
+      if (!jabatan)
+        return res.status(400).json({ msg: "jabatan tidak boleh kosong" });
 
       await Karyawan.findOneAndUpdate(
         { _id: req.params.id },
@@ -56,10 +67,7 @@ const karyawanCtrl = {
   },
   deleteKaryawan: async (req, res) => {
     try {
-      await Karyawan.findByIdAndUpdate(
-        { _id: req.params.id },
-        { is_delete: 1 }
-      );
+      await Karyawan.findByIdAndUpdate({ _id: req.body.id }, { is_delete: 1 });
       res.status(200).json({ msg: "karyawan berhasil di hapus" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });

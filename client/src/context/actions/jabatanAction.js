@@ -67,11 +67,11 @@ export const getJabatan = async (auth, dispatch) => {
     const res = await axios.get(`/api/jabatan/`, {
       headers: { Authorization: auth },
     });
-    console.log("get data jabatan", res.data);
+    // console.log("get data jabatan", res.data);
     dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: false } });
     dispatch({
       type: JABATAN_TYPES.GET_JABATANS,
-      payload: { ...res.data },
+      payload: res.data,
     });
   } catch (err) {
     dispatch({

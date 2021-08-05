@@ -5,7 +5,7 @@ const auth = require("../middlewares/auth");
 
 router.post("/", auth, authAdmin, jabatanCtrl.createJabatan);
 
-router.patch("/delete/:id", auth, authAdmin, jabatanCtrl.deleteJabatan);
+router.put("/delete/", auth, authAdmin, jabatanCtrl.deleteJabatan);
 
 router.patch("/update/:id", auth, authAdmin, jabatanCtrl.updateJabatan);
 

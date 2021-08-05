@@ -1,0 +1,34 @@
+.jabatan {
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .addButton {
+      padding: 5px 10px;
+      background-color: teal;
+    }
+  }
+  .jabatanTabel {
+    border-collapse: collapse;
+    width: 100%;
+    td,
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      min-width: 100px;
+    }
+    &tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background: #555;
+      color: white;
+    }
+    i {
+      cursor: pointer;
+    }
+  }
+}

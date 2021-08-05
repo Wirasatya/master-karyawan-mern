@@ -29,7 +29,7 @@ const jabatanCtrl = {
   },
   deleteJabatan: async (req, res) => {
     try {
-      await Jabatan.findByIdAndUpdate({ _id: req.params.id }, { is_delete: 1 });
+      await Jabatan.findOneAndUpdate({ _id: req.body.id }, { is_delete: 1 });
       res.status(200).json({ msg: "jabatan berhasil di hapus" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });

@@ -1,9 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import auth from "../context/reducers/authReducer";
 import alert from "../context/reducers/alertReducer";
-import modal from "../context/reducers/modalReducer";
-import karyawan from "../context/reducers/karyawanReducer";
-import jabatan from "../context/reducers/jabatanReducer";
 
 function combineReducers(reducers) {
   return (state = {}, action) => {
@@ -26,15 +23,6 @@ export const initialState = {
     success: null,
     error: null,
   },
-  modal: false,
-  karyawan: {
-    loading: false,
-    karyawan: [],
-  },
-  jabatan: {
-    loading: false,
-    jabatan: [],
-  },
 };
 
 export const StateContext = createContext();
@@ -46,9 +34,6 @@ export const StateProvider = ({ children }) => {
         combineReducers({
           auth,
           alert,
-          modal,
-          karyawan,
-          jabatan,
         }),
         initialState
       )}
