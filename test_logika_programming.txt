@@ -1,0 +1,117 @@
+function getOkYes(n) {
+  var output = "";
+  for (var i = 1; i <= 1; i++) {
+    for (var j = 1; j <= n; j++) {
+      if (j % 4 == 0 && j % 3 == 0) {
+        output += "OKYES" + " ";
+      } else if (j % 3 == 0) {
+        output += "OK" + " ";
+      } else if (j % 4 == 0) {
+        output += "YES" + " ";
+      } else {
+        output += j + " ";
+      }
+    }
+    console.log(output);
+    output = "";
+  }
+}
+
+function firstPyramid(n) {
+  var output = "";
+  for (var i = 1; i <= n; i++) {
+    for (var j = 1; j <= i; j++) {
+      output += i;
+    }
+    console.log(output);
+    output = "";
+  }
+}
+
+function secondPyramid(n) {
+  var output = "";
+  for (var i = 1; i <= n; i++) {
+    for (var j = i; j >= 1; j--) {
+      output += j;
+    }
+    console.log(output);
+    output = "";
+  }
+}
+
+function thirdPyramid(n) {
+  var output = "";
+  var x = 1;
+  var y = n;
+  for (var i = 1; i <= n; i++) {
+    for (var j = 1; j <= i; j++) {
+      if (x < n) {
+        output += x + " ";
+        x++;
+        if (x == n) {
+          y = n;
+        }
+      } else {
+        output += y + " ";
+        y--;
+        if (y == 1) {
+          x = 1;
+        }
+      }
+    }
+    console.log(output);
+    output = "";
+  }
+}
+
+function fourthMatrix(n) {
+  var output = "";
+  for (var i = 0; i < n; i++) {
+    for (var j = 0; j < n; j++) {
+      if (j % 2 == 0) {
+        output += n * j + i + 1 + " ";
+      } else {
+        output += n * (j + 1) - i + " ";
+      }
+    }
+    console.log(output);
+    output = "";
+  }
+}
+
+let nArr = [12, 9, 13, 6, 10, 4, 7, 2];
+
+const filterN = () => {
+  const newArr = nArr.filter((n) => n % 3 !== 0).sort((a, b) => a - b);
+  console.log(newArr);
+};
+
+filterN();
+
+ console.log("getOkYes");
+ getOkYes(15);
+
+ console.log("first pyramid");
+ firstPyramid(5);
+
+ console.log("second pyramid");
+ secondPyramid(5);
+
+ console.log("third pyramid");
+ thirdPyramid(10);
+
+ console.log("fourth matrix");
+ fourthMatrix(5);
+ 
+ 4.
+ a. select * from Barang where Barang.Harga_satuan>10000 order by Barang.Harga_satuan ASC 
+
+ b. selet * from Pelanggan where Pelanggan.Alamat = "Bandung" and Pelanggan.Nama like %g%
+
+ c. select kode, tanggal, nama_pelanggang, nama_barang, 
+    jumlah_barang as jumlah, harga_satuan, (jumlah * harga_satuan) as total 
+    from transaksi 
+    join pelanggang on transaksi.kode_pelanggan = pelanggan.kode
+    join barang on transaksi.kode_barang = barang.kode 
+
+d. 
